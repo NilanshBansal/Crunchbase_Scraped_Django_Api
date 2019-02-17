@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  /* border-collapse: collapse; */
+  width: 100%;
+  font-size:large;
+}
+td{
+  border-bottom: 1px solid #dddddd;
+}
+td, th {
+  /* border-bottom: 1px solid #dddddd; */
+  text-align: left;
+  padding: 10px;
+}
+
+tr{
+    padding: 10px;
+}
+tr:nth-child(even) {
+  /* background-color: #dddddd; */
+}
+tr > td:nth-child(odd) {
+    color:black;
+    font-weight: bold;
+}
+#heading{
+    /* color:#33A8FF; */
+    color:#4F33FF;
+    font-weight: 100;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+</style>
+</head>
+<body>
+<div style="height:30px; background-color: #34495E; color: white;display: flex;justify-content: center;padding: 1%;"><center style="font-size: large;">Vicay Analysis Report: &nbsp;<b>{{title}}</b></center></div>
+<h1 id="heading">Company Details</h1>
+
+
+<table>
+  
+  <tr>
+    <td>Founded</td>
+    <td>{{founded}}</td>
+  </tr>
+  <tr>
+    <td>HQ</td>
+    <td>{{hq}}</td>
+  </tr>
+
+  <tr>
+    <td>Founders</td>
+    <td>{{founders}}</td>
+  </tr>
+  <tr>
+    <td>Ipo Status</td>
+    <td>{{ipo_status}}</td>
+  </tr>
+  <tr>
+    <td>Company Type</td>
+    <td>{{company_type}}</td>
+  </tr>
+  <!-- <tr>
+    <td>CEO Score</td>
+    <td>{{ceo_score}}</td>
+  </tr> -->
+  <!-- <tr>
+    <td>No of Webvisits </td>
+    <td>{{no_of_webvisits_latest_month}}</td>
+  </tr> -->
+  <tr>
+    <td>No of Investors</td>
+    <td>{{num_investors}}</td>
+  </tr>
+  <!-- <tr>
+    <td>No of Employees</td>
+    <td>{{num_employees}}</td>
+  </tr> -->
+  <tr>
+    <td>Total Funding</td>
+    <td>{{total_equity_funding}}</td>
+  </tr>
+  <tr>
+    <td>No of Funding Rounds</td>
+    <td>{{num_funding_rounds}}</td>
+  </tr>
+  <tr>
+    <td>Revenue</td>
+    <td>{{revenue}}</td>
+  </tr>
+  <tr>
+    <td>Competitor</td>
+    <td>{{competitor}}</td>
+  </tr>
+  <!-- <tr>
+    <td>Competitor Revenue</td>
+    <td>{{competitor_revenue}}</td>
+  </tr> -->
+  <tr>
+    <td>Description</td>
+    <td>{{short_description}}</td>
+  </tr>
+  <tr>
+    <td>News Articles</td>
+    <td>{{no_of_news_articles}}</td>
+  </tr>
+  <tr>
+    <td>Works</td>
+    <td>{{categories}}</td>
+  </tr>
+
+
+</table>
+
+</body>
+</html>
