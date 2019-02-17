@@ -20,5 +20,5 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^crunchbase/', include('generate_pdf.urls')),
+    url(r'^', include('generate_pdf.urls')),
 ]
