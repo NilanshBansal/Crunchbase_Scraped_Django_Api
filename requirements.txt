@@ -7,3 +7,4 @@ pytz==2018.9
 requests==2.21.0
 urllib3==1.24.1
 gunicorn==19.9.0
+python-pdf==0.36
