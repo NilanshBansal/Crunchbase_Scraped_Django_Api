@@ -250,7 +250,8 @@ def get_pdf(request):
 
     t = get_template('pdf_template.html')
     html = t.render(obj)
-    pdf = pdfkit.from_string(html, False)
+    config = pdfkit.configuration(wkhtmltopdf='/app/bin/wkhtmltopdf')
+    pdf = pdfkit.from_string(html, False, configuration=config)
     response = HttpResponse(pdf,content_type='application/pdf')
     # response['Content-Disposition'] = 'attachment; filename=' + obj['title'] + '.pdf'
     response['Content-Disposition'] = 'inline; filename=' + obj['title'] + '.pdf'
