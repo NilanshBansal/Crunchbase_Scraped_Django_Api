@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+    /* padding: 30px; */
+    margin-left: 30px;
+    margin-top:30px;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 50%;
+}
+</style>
+<body>
+<h2><center>CRUNCHBASE SCRAPER & PDF CREATOR</center></h2>
+<br>
+<h3>GET JSON DETAILS</h3>
+
+<div>
+  <form action="/get_json/" method="GET">
+    <label for="company">Enter Company Name</label>
+    <input type="text" id="company" name="company" placeholder="eg. Google, Microsoft, Amazon">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<br><br><br>
+<h3>GET PDF</h3>
+<div>
+    <form action="/get_pdf/" method="GET">
+      <label for="company">Enter Company Name</label>
+      <input type="text" id="company" name="company" placeholder="eg. Google, Microsoft, Amazon">
+  
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+</body>
+</html>

@@ -4,7 +4,8 @@ from .import views
 
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', views.index),
+    url(r'^get_json/$', views.get_json),
     url(r'^get_pdf/$', views.get_pdf),
 
 ]

@@ -13,11 +13,11 @@ from django.template.loader import get_template
 
 warnings.filterwarnings("ignore", category=UserWarning, module="bs4")
 
-# def index(request):
-#     return HttpResponse('CRUNCHBASE PDF!')
+def index(request):
+    return render(request,'index.html')
 
-def home(request):
-    query = request.GET['query']
+def get_json(request):
+    company = request.GET['company']
 
 
     userAgents = [
@@ -51,8 +51,8 @@ def home(request):
     }
 
     no = randint(1,2)
-    # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(query) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
-    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + query.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
+    # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(company) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
+    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
     print(url)
     r = requests.get(url,headers=html_headers)
     # r = requests.get('http://localhost:8050/render.html?url={}&timeout=50&wait={}'.format(url,no),headers=html_headers,cookies=cookieJar2)
@@ -68,7 +68,7 @@ def home(request):
     return HttpResponse(r.text,content_type='application/json')
 
 def get_pdf(request):
-    query = request.GET['query']
+    company = request.GET['company']
     
     userAgents = [
         "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0)",
@@ -101,8 +101,8 @@ def get_pdf(request):
     }
 
     no = randint(1,2)
-    # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(query) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
-    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + query.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
+    # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(company) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
+    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
     
     print(url)
     r = requests.get(url,headers=html_headers)
@@ -252,6 +252,7 @@ def get_pdf(request):
     html = t.render(obj)
     config = pdfkit.configuration(wkhtmltopdf='/app/bin/wkhtmltopdf')
     pdf = pdfkit.from_string(html, False, configuration=config)
+    # pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf,content_type='application/pdf')
     # response['Content-Disposition'] = 'attachment; filename=' + obj['title'] + '.pdf'
     response['Content-Disposition'] = 'inline; filename=' + obj['title'] + '.pdf'
