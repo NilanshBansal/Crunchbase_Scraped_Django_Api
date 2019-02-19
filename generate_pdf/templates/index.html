@@ -5,6 +5,12 @@ body{
     /* padding: 30px; */
     margin-left: 30px;
     margin-top:30px;
+    background-image: url('https://images.unsplash.com/photo-1502367448277-82e29b176948?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80');
+    background-color: black;
+    background-repeat: no-repeat;
+    /* background-size: 1400px 1400px; */
+    background-size: 800px 800px;
+    background-position: 600px 100px;
 }
 input[type=text], select {
   width: 100%;
@@ -18,7 +24,8 @@ input[type=text], select {
 
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  /* background-color: #4CAF50; */
+  background-color: rgba(255, 103, 68, 0.91);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -28,7 +35,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  /* background-color: #45a049; */
+  background-color: rgba(143, 34, 9, 0.91);
 }
 
 div {
@@ -39,9 +47,9 @@ div {
 }
 </style>
 <body>
-<h2><center>CRUNCHBASE SCRAPER & PDF CREATOR</center></h2>
+<h2><center style="color:white">CRUNCHBASE SCRAPER & PDF CREATOR</center></h2>
 <br>
-<h3>GET JSON DETAILS</h3>
+<h3 style="color:white">GET JSON DETAILS</h3>
 
 <div>
   <form action="/get_json/" method="GET">
@@ -52,7 +60,7 @@ div {
   </form>
 </div>
 <br><br><br>
-<h3>GET PDF</h3>
+<h3 style="color:white">GET PDF</h3>
 <div>
     <form action="/get_pdf/" method="GET">
       <label for="company">Enter Company Name</label>
