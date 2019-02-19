@@ -52,7 +52,7 @@ def get_json(request):
 
     no = randint(1,2)
     # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(company) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
-    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
+    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.lower().replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
     print(url)
     r = requests.get(url,headers=html_headers)
     # r = requests.get('http://localhost:8050/render.html?url={}&timeout=50&wait={}'.format(url,no),headers=html_headers,cookies=cookieJar2)
@@ -102,7 +102,7 @@ def get_pdf(request):
 
     no = randint(1,2)
     # url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + urllib.parse.quote_plus(company) + '?field_ids=%5B%22identifier%22,%22layout_id%22,%22facet_ids%22,%22title%22,%22short_description%22,%22description%22,%22is_locked%22%5D&layout_mode=view'
-    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
+    url = 'https://www.crunchbase.com/v4/data/entities/organizations/' + company.lower().replace(' ','-') + '?field_ids=["identifier","layout_id","facet_ids","title","short_description","description","is_locked"]&layout_mode=view'
     
     print(url)
     r = requests.get(url,headers=html_headers)
